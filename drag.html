@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drag Me</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="gradient-text" href="index.html">Welcome</a>
+            <a class="gradient-text" href="about.html">About Me</a>
+            <a class="gradient-text" href="contacto.html">Contactos</a>
+        </nav>
+    </header>
+
+    <p class="teste">Click on me and try to drag within this Page.</p>
+
+    <div id="drag-2" class="draggable">
+        <img src="icons2/me.png" alt="me" style="width:30%; height:30%">
+    </div>
+    <p class="teste">Drag to draw. Double tap to clear.</p>
+    <canvas class="rainbow-pixel-canvas"></canvas>
+
+
+    <script type="text/javascript">
+
+        interact('.draggable')
+            .draggable({
+                // enable inertial throwing
+                inertia: true,
+                // keep the element within the area of it's parent
+                modifiers: [
+                    interact.modifiers.restrictRect({
+                        restriction: 'parent',
+                        endOnly: true
+                    })
+                ],
+                // enable autoScroll
+                //autoScroll: true,
+
+                listeners: {
+                    // call this function on every dragmove event
+                    move: dragMoveListener,
+
+                    // call this function on every dragend event !! só quero usar se for mesmo necessário saber o que se mexeu 
+                    /* end (event) {
+                         var textEl = event.target.querySelector('p')
+         
+                         textEl && (textEl.textContent =
+                         'moved a distance of ' +
+                         (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
+                                     Math.pow(event.pageY - event.y0, 2) | 0))
+                             .toFixed(2) + 'px')
+                     }*/
+                }
+            })
+
+        function dragMoveListener(event) {
+            var target = event.target
+            // keep the dragged position in the data-x/data-y attributes
+            var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+            var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+
+            // translate the element
+            target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+
+            // update the posiion attributes
+            target.setAttribute('data-x', x)
+            target.setAttribute('data-y', y)
+        }
+
+        // this function is used later in the resizing and gesture demos
+        window.dragMoveListener = dragMoveListener
+
+
+        //////////////////////////////////////////////////////
+
+        var pixelSize = 16
+
+        interact('.rainbow-pixel-canvas')
+            .draggable({
+                max: Infinity,
+                maxPerElement: Infinity,
+                origin: 'self',
+                modifiers: [
+                    interact.modifiers.snap({
+                        // snap to the corners of a grid
+                        targets: [
+                            interact.snappers.grid({ x: pixelSize, y: pixelSize })
+                        ]
+                    })
+                ],
+                listeners: {
+                    // draw colored squares on move
+                    move: function (event) {
+                        var context = event.target.getContext('2d')
+                        // calculate the angle of the drag direction
+                        var dragAngle = 180 * Math.atan2(event.dx, event.dy) / Math.PI
+
+                        // set color based on drag angle and speed
+                        context.fillStyle =
+                            'hsl(' +
+                            dragAngle +
+                            ', 86%, ' +
+                            (30 + Math.min(event.speed / 1000, 1) * 50) +
+                            '%)'
+
+                        // draw squares
+                        context.fillRect(
+                            event.pageX - pixelSize / 2,
+                            event.pageY - pixelSize / 2,
+                            pixelSize,
+                            pixelSize
+                        )
+                    }
+                }
+            })
+            // clear the canvas on doubletap
+            .on('doubletap', function (event) {
+                var context = event.target.getContext('2d')
+
+                context.clearRect(0, 0, context.canvas.width, context.canvas.height)
+                resizeCanvases()
+            })
+
+        function resizeCanvases() {
+            [].forEach.call(document.querySelectorAll('.rainbow-pixel-canvas'), function (
+                canvas
+            ) {
+                delete canvas.width
+                delete canvas.height
+
+                var rect = canvas.getBoundingClientRect()
+
+                canvas.width = rect.width
+                canvas.height = rect.height
+            })
+        }
+
+        resizeCanvases()
+
+        // interact.js can also add DOM event listeners
+        interact(window).on('resize', resizeCanvases) 
+    </script>
+</body>
+
+</html>

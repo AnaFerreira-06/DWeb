@@ -1,0 +1,333 @@
+ Reset some default styles 
+body, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+html, body {
+height: 100%;
+
+}
+
+.full-height {
+  height: 80%;
+}
+
+/* Animação do fundo*/
+body {
+    background-image: linear-gradient(-45deg, #ff357f 0%, rgb(111, 15, 117) 25%, rgb(4, 0, 255) 51%, #ff357f 100%);
+    font-family: Arial, sans-serif;
+    background-size: 300% 300%;
+    -webkit-animation: AnimateBG 10s ease infinite;
+    animation: AnimateBG 10s ease infinite;
+}
+/*Animação da gradiante do background*/
+@-webkit-keyframes AnimateBG {
+  0% {
+    background-position: 0% 70%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+
+
+}
+
+/* Style the header */
+header {
+  color: #ffffff;
+  text-align: left;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+nav  {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  min-height: 50px ;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  padding: 20px;
+}
+/*________________________________________________*/
+a {
+  text-decoration: none;
+}
+
+.gradient-text {
+  color: white;
+}
+
+.gradient-text:hover {
+  background-image: linear-gradient(to right, #ff8a00, #bc1fe7);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-fill-color: transparent;
+  display: inline-block;
+  transition: background-image 0.3s ease; /* Smooth transition */
+}
+
+
+/*______________Welcome____________*/
+h1{
+    color: #000;
+    font-family: Ruslan Display;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 92.5%; /* 59.2px */
+}
+
+
+#welcome{
+  padding: 2vw;
+    text-align: justify;
+    font-size: 12vw;
+    display:flex;
+    justify-content: flex-start;
+}
+
+#project{
+  padding: 2vw;
+    color: #FFF;
+    text-align: right;
+    font-size: 40px;
+    display:flex;
+    justify-content: flex-end;
+}
+
+#nome{
+  width:40vw;
+  padding: 2vw;
+  margin-top: 60px;
+  font-size: 5vw;
+}
+
+
+/*_______to my little project animation____________________*/
+
+:root {
+  --color-primary: #f6a2cf;
+  --color-secondary: #f490ce;
+  --color-tertiary: #f27dc5;
+  --color-quaternary: #f06ab4;
+  --color-quinary: #ee5298;
+}
+
+.text_shadows {
+  text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary),
+    9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+  font-family: bungee, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: calc(2rem + 5vw);
+  text-align: center;
+  margin: 0;
+  color: var(--color-primary);
+  animation : shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
+  letter-spacing: 0.4rem;
+}
+
+@keyframes shadows {
+  0% {
+    text-shadow: none;
+  }
+  10% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  20% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  30% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  40% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  50% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  60% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary),
+      12px 12px 0 var(--color-quinary);
+  }
+  70% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary);
+  }
+  80% {
+    text-shadow: 3px 3px 0 var(--color-secondary),
+      6px 6px 0 var(--color-tertiary);
+  }
+  90% {
+    text-shadow: 3px 3px 0 var(--color-secondary);
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  40% {
+    transform: translate(-12px, -12px);
+  }
+  50% {
+    transform: translate(-12px, -12px);
+  }
+  60% {
+    transform: translate(-12px, -12px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+/*________ drag cenas ________________________*/
+
+#drag-1, #drag-2 {
+  width: 25%;
+  min-height: 6.5em;
+  padding: 1em;
+  touch-action:none;
+  user-select: none;
+  transform: translate(0px, 0px);
+}
+
+
+/*_______página about me_______________________________*/
+
+#sobre{
+  padding-inline: 10vw;
+  padding-top: 5vw;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between ;
+}
+
+#sobre img{
+  max-height: 20vw;
+  border-radius: 4%;
+}
+
+#about{
+  max-width: 600px;
+  min-width: 200px;
+  /*margin: 0 auto;*/
+  display: flex;
+  flex-direction: column;
+}
+
+p{
+  color:#FFF;
+}
+
+h2 {
+font-family: Ruslan Display;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+
+
+/*________ página contactos ________________________*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  position: relative;
+  width: 100vw;
+  height: 85vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 100%;
+  object-fit: fill;
+}
+
+section h2 {
+  position: relative;
+  font-size: 10vw;
+  color: black;
+}
+
+#logos img {
+  position: relative;
+}
+
+#logos {
+  display: inline;
+  padding: 1em;
+  color: #fff;
+}
+
+.icon {
+  padding: 10px;
+}
+
+/*________ página testes ________________________*/
+
+.rainbow-pixel-canvas {
+ 
+  width: 100%;
+  height: 50%;
+  padding: 0.5vw;
+  /*box-sizing: border-box;`*/
+  border: 3px solid rgb(255, 0, 225);  
+  border-radius: 2%;
+  background: transparent;
+  user-select: none;
+  touch-action: none;
+}
+
+.teste{
+  padding: 1vw;
+}
+
