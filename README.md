@@ -4,9 +4,9 @@ Este trabalho foi elaborado para a cadeira de Desenvolvimento Web, do Mestrado e
 Optei por criar um website que me defenisse no sentido de ser colorido e cheio de vida. Utilizei a interact.js para algumas das interações do website.
 É um trabalho com caratér exprimental, que me permitiu explorar o meu lado criativo e dinâmico.
 
-Deixo ainda o link para o pequeno video representativo https://vimeo.com/888022014?share=copy
+📷 Deixo ainda o link para o pequeno video representativo https://vimeo.com/888022014?share=copy
 
-My personal site is live at https://anaferreira-06.github.io/DWeb/
+📌 My personal site is live at https://anaferreira-06.github.io/DWeb/
 
 
 Ana Isabel Ferreira 
