@@ -240,7 +240,7 @@ h1{
 }
 
 #sobre img{
-  max-width: 30em;
+  max-width: 25em;
   height: fit-content;
   border: 3px solid rgb(255, 0, 225);
   border-radius: 4%;
