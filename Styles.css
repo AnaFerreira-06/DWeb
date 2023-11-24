@@ -240,7 +240,9 @@ h1{
 }
 
 #sobre img{
-  max-height: 20vw;
+  max-width: 30em;
+  height: fit-content;
+  border: 3px solid rgb(255, 0, 225);
   border-radius: 4%;
 }
 
@@ -250,6 +252,15 @@ h1{
   /*margin: 0 auto;*/
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 600px){
+  #sobre{
+     flex-direction: column;
+  }
+  #sobre img{
+    margin-top: 1em;
+  }
 }
 
 p{
